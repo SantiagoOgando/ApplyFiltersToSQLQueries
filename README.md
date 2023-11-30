@@ -13,9 +13,13 @@ The following code demonstrates how I created a SQL query to filter for failed l
 that occurred after business hours.
 
 
+
 SELECT * 
+
 FROM log_in_attempts
+
 WHERE login_time > ‘18:00’ AND SUCCESS = FALSE;
+
 
 By selecting “*” we retrieve all the information from the log_in_attempts table with the conditions of unsuccessful logins occurring after 6:00pm.
 
@@ -29,7 +33,9 @@ occurred on specific dates.
 
 
 SELECT *
+
 -> FROM log_in_attempts
+
 -> WHERE login_date = '2022-05-09' OR login_date = '2022-05-08';
 
 I started by getting all the data from the log_in_attempts table. Then, I used a WHERE clause with an OR operator to show only login attempts from either 2022-05-09 or 2022-05-08. The first condition, login_date = '2022-05-09', filters logins on that date. The second one, login_date = '2022-05-08', is for logins on that date.
@@ -41,7 +47,9 @@ The following code demonstrates how I created a SQL query to filter for login at
 
 
 SELECT *
+
 FROM log_in_attempts
+
 WHERE NOT Country LIKE “MEX%”;
 
 The query I used fetches login attempts from countries excluding Mexico. I began by selecting all information from the log_in_attempts table. Next, I employed a WHERE clause with NOT to exclude occurrences in Mexico. To achieve this, I utilized LIKE with the pattern MEX%, accommodating both 'MEX' and 'MEXICO' representations. The % symbol indicates any number of unspecified characters when combined with LIKE.
@@ -55,7 +63,9 @@ from employees in the Marketing department in the East building.
 
 
 SELECT *
+
 FROM employees
+
 WHERE department = “marketing” AND office LIKE “East%”;
 
 
@@ -72,7 +82,9 @@ from employees in the Finance or Sales departments.
 
 
 SELECT *
+
 FROM employees
+
 WHERE department = “sales” OR department = “finance”;
 
 The query I've crafted gathers employees from both the Finance and Sales departments, as depicted in the initial part of the query. My approach began by selecting all information from the employees table. Subsequently, I incorporated a WHERE clause with OR to target employees present in either the Finance or Sales departments. I opted for the OR operator rather than AND because I intend to capture all employees affiliated with either department. The initial criterion, department = 'Finance', is tailored to filter Finance department employees. The subsequent criterion, department = 'Sales', effectively narrows the focus to employees associated with the Sales department.
@@ -85,7 +97,9 @@ The following demonstrates how I created a SQL query to filter for employee mach
 employees not in the Information Technology department.
 
 SELECT *
+
 FROM employees
+
 WHERE NOT department = “Information Technology”;
 
 The query I've constructed retrieves employees who are not part of the Information Technology department. To achieve this, I began by selecting all available data from the employees table. I then implemented a WHERE clause with NOT to accurately pinpoint employees who are not affiliated with this specific department.
